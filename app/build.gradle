@@ -1,0 +1,175 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "com.asprog.imct"
+        minSdk 26
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+        useIR = true
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion compose_version
+        kotlinCompilerVersion '1.5.21'
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+
+    //Base
+    implementation 'androidx.core:core-ktx:1.6.0'
+    implementation 'androidx.activity:activity-compose:1.3.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
+
+    //Compose
+    implementation "androidx.compose.material:material-icons-extended:1.0.2"
+    implementation "androidx.constraintlayout:constraintlayout-compose:1.0.0-beta02"
+    implementation "androidx.activity:activity-compose:1.3.1"
+    implementation "androidx.compose.ui:ui:1.0.2"
+    implementation "androidx.compose.material:material:1.0.2"
+    implementation "androidx.compose.ui:ui-tooling-preview:1.0.2"
+    implementation 'androidx.paging:paging-common-ktx:3.0.1'
+    implementation "androidx.paging:paging-compose:1.0.0-alpha12"
+
+    //Tests
+    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation "androidx.arch.core:core-testing:2.1.0" // Test helpers for LiveData
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+
+    // room
+    implementation "androidx.room:room-runtime:2.4.0-alpha04"
+    implementation "androidx.room:room-ktx:2.4.0-alpha04"
+    kapt "androidx.room:room-compiler:2.4.0-alpha04"
+
+    //Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
+
+    //Security
+    implementation 'androidx.security:security-crypto-ktx:1.1.0-alpha03'
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.9.0"
+    implementation "com.squareup.retrofit2:converter-scalars:2.9.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+
+    //Gson
+    implementation "com.google.code.gson:gson:2.8.7"
+
+    //OkHttp
+    implementation "com.squareup.okhttp3:okhttp:4.9.1"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.1"
+
+    //Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
+
+    //EventBus
+    implementation "org.greenrobot:eventbus:3.2.0"
+    implementation group: 'org.apache.commons', name: 'commons-text', version: '1.8'
+
+    //Navigation
+    implementation "com.google.accompanist:accompanist-navigation-material:0.18.0"
+    implementation "androidx.hilt:hilt-navigation-fragment:1.0.0"
+    implementation 'androidx.hilt:hilt-navigation-compose:1.0.0-alpha03'
+    implementation "androidx.navigation:navigation-compose:2.4.0-alpha09"
+
+    //Dagger Core
+    implementation "com.google.dagger:dagger:2.38.1"
+    kapt "com.google.dagger:dagger-compiler:2.37"
+
+    //Dagger Android
+    api 'com.google.dagger:dagger-android:2.37'
+    api 'com.google.dagger:dagger-android-support:2.37'
+    kapt 'com.google.dagger:dagger-android-processor:2.37'
+
+    //Dagger - Hilt
+    implementation "com.google.dagger:hilt-android:2.38.1"
+    kapt "com.google.dagger:hilt-android-compiler:2.37"
+
+    //ViewModel and LiveData
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0-beta01"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.4.0-beta01"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0-beta01"
+    implementation "androidx.compose.runtime:runtime-livedata:1.0.2"
+    //Lifecycles only (without ViewModel or LiveData)
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0-beta01"
+    //Saved state module for ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.4.0-beta01"
+    //Annotation processor
+    //noinspection LifecycleAnnotationProcessorWithJava8
+    kapt "androidx.lifecycle:lifecycle-compiler:2.4.0-beta01"
+    // alternately - if using Java8, use the following instead of lifecycle-compiler
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.4.0-beta01"
+    // optional - helpers for implementing LifecycleOwner in a Service
+    implementation "androidx.lifecycle:lifecycle-service:2.4.0-beta01"
+    // optional - ProcessLifecycleOwner provides a lifecycle for the whole application process
+    implementation "androidx.lifecycle:lifecycle-process:2.4.0-beta01"
+    // optional - ReactiveStreams support for LiveData
+    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:2.4.0-beta01"
+
+    //Images
+    implementation "io.coil-kt:coil-compose:1.3.2"
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+
+    //Lottie
+    implementation "com.airbnb.android:lottie:4.1.0"
+    implementation "com.airbnb.android:lottie-compose:4.0.0"
+
+    //Timber
+    implementation "com.jakewharton.timber:timber:4.7.1"
+
+    //SwipeRefresh and Pager
+    implementation "com.google.accompanist:accompanist-pager:0.16.1"
+    implementation "com.google.accompanist:accompanist-pager-indicators:0.16.1"
+    implementation "com.google.accompanist:accompanist-swiperefresh:0.18.0"
+    implementation "com.google.accompanist:accompanist-insets:0.18.0"
+    implementation "com.google.accompanist:accompanist-systemuicontroller:0.18.0"
+
+    //ResponseResult
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.5.31"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.2"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0"
+    implementation "com.squareup.okhttp3:mockwebserver:4.9.1"
+    implementation "org.mockito:mockito-core:3.11.2"
+
+}

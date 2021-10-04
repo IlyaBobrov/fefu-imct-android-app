@@ -1,0 +1,7 @@
+package com.asprog.imct.modules.home.services.apiService.impl
+
+import com.asprog.imct.modules.home.services.api.ApiHome
+
+interface ApiServiceDelete {
+    val api: ApiHome
+}

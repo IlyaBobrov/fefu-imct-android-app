@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">ДМиКМ</string>
+
+    <string name="screen_home_name">Новости</string>
+
+    <string name="load_error">Не удалось обновить страницу</string>
+
+
+    <string name="error_field_min_length">Минимальная длина %s символов</string>
+    <string name="error_field_max_length">Максимальная длина %s символов</string>
+    <string name="is_incorrect">Это неверно</string>
+    <string name="is_required">Обязательное</string>
+    <string name="is_exist">Существует</string>
+
+    <!-- Form-->
+    <string name="form_edit_text">Редактировать текст</string>
+    <string name="form_name">Имя</string>
+    <string name="form_email">Email</string>
+    <string name="form_phone">Телефон</string>
+    <string name="form_card">Карта</string>
+    <string name="form_password">Пароль</string>
+    <string name="form_button_submit">Отправить</string>
+
+    <!-- Common-->
+    <string name="common_search">Поиск…</string>
+    <string name="common_not_available">Недоступно</string>
+    <string name="common_coming_soon">Скоро будет…</string>
+    <string name="common_navigate_up">Перейти вверх</string>
+    <string name="common_btn_confirm">Подтверждить</string>
+    <string name="common_exit">Пожалуйста, нажмите еще раз, чтобы выйти</string>
+    <string name="common_error_network_title">Нет соединения</string>
+    <string name="common_error_network_text">Проверьте соединение с интернетом или попробуйте позже</string>
+    <string name="common_error_network_btn">Повторить</string>
+    <string name="common_check_failed">Проверка не пройдена</string>
+    <string name="common_state_empty_title">Ничего не найдено</string>
+    <string name="common_go_to_catalog">Перейти в каталог</string>
+    <string name="common_sign_in">Войти</string>
+    <string name="common_sign_up">Зарегистрироваться</string>
+    <string name="common_btn_cancel">Закрыть</string>
+
+    <!-- Home -->
+    <string name="home_title">Бренды</string>
+    <string name="home_empty_feed">Странно, ничего не найдено, попробуйте обновить страницу позже</string>
+    <string name="home_btn_all">Все</string>
+    <string name="home_btn_shops">Магазины РИВ ГОШ</string>
+    <string name="home_new_items">Новинки</string>
+    <string name="home_ads_title">Объявления</string>
+    <string name="ads_btn_all">Все</string>
+
+    <string name="close_dialog">Закрыть</string>
+    <string name="menu_home">Новости</string>
+    <string name="menu_info">Инфо</string>
+    <string name="menu_cabinet">Кабинет</string>
+    <string name="news_screen_bar">Подробности</string>
+    <string name="info_screen_bar">Информация</string>
+    <string name="profile_login_title">Авторизуйтесь</string>
+    <string name="profile_login_text">чтобы воспользоваться инструментами публикции объявлений и новостей</string>
+    <string name="profile_login_btn_login">Войти</string>
+    <string name="profile_login_btn_registration">Регистрация</string>
+
+</resources>

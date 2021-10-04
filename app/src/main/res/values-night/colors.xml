@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- custom colors-->
+    <color name="splash">#1C1C1E</color>
+    <color name="customTitle">@color/dark_blue_primary</color>
+    <color name="tabEnable">#FFFFFF</color>
+    <color name="tabDisable">#B6B6B6</color>
+    <color name="textColorSecondary">#ADAEBA</color>
+
+    <!-- default colors-->
+    <color name="primary">@color/dark_blue_primary</color>
+    <color name="primaryVariant">#082E4B</color>
+    <color name="secondary">#2B2B2B</color>
+    <color name="secondaryVariant">#FFFFFF</color>
+    <color name="background">#1C1C1E</color>
+    <color name="surface">#5E5E5E</color>
+    <color name="error">#BC3329</color>
+    <color name="onPrimary">#FFFFFF</color>
+    <color name="onSecondary">#C1C1C1</color>
+    <color name="onBackground">#FFFFFF</color>
+    <color name="onSurface">#DADADA</color>
+    <color name="onError">#952820</color>
+
+    <color name="newsBackground">#33277DBD</color>
+
+
+</resources>
