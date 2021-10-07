@@ -26,10 +26,11 @@ object HttpClientModule {
                 val original = it.request()
                 val request = original.newBuilder().apply {
                     if (preferences.accessToken.isNotEmpty()) {
-                        header("Authorization", "Bearer ${preferences.accessToken}")
+                        addHeader("Authorization", "Bearer ${preferences.accessToken}")
                     }
                 }
                     .method(original.method, original.body)
+
                     .build()
                 it.proceed(request)
             }

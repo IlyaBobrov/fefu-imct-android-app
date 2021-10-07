@@ -172,4 +172,5 @@ dependencies {
     implementation "com.squareup.okhttp3:mockwebserver:4.9.1"
     implementation "org.mockito:mockito-core:3.11.2"
 
+    implementation "com.vdurmont:emoji-java:5.1.1"
 }

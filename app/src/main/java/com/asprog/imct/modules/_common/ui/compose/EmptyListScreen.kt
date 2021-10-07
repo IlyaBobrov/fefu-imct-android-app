@@ -52,7 +52,7 @@ fun EmptyListScreen(
             ) {
                 Text(
                     color = MaterialTheme.colors.onPrimary,
-                    text = stringResource(id = R.string.common_go_to_catalog),
+                    text = "Повторить попытку",
                 )
             }
         }

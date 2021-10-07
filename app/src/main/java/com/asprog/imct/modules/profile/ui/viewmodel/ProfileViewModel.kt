@@ -18,8 +18,7 @@ import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
-class ProfileViewModel
-@Inject constructor(
+class ProfileViewModel @Inject constructor(
     private val data: DataServiceProfile,
     private val apiService: ApiServiceProfile,
 ) : ViewModel() {

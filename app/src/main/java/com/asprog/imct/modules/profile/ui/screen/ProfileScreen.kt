@@ -27,12 +27,14 @@ fun ProfileScreen(
     val user by viewModel.getUser().collectAsState(false)
     val loading: Boolean by viewModel.loading.collectAsState()
     val isLogin by LocalBaseViewModel.current.isLogin.collectAsState()
+    val userResp by LocalBaseViewModel.current.userResp.collectAsState()
 
 
     ProfileBody(
         user = user,
         loading = loading,
         isLogin = isLogin,
+        userResp = userResp,
         onEvent = onEvent,
     )
 

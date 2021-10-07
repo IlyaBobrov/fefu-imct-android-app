@@ -4,5 +4,5 @@ sealed class ProfileEvents {
     object NavigateBack : ProfileEvents()
     object UpdateUser : ProfileEvents()
     object NavigateToSignIn : ProfileEvents()
-
+    object NavigateLogout : ProfileEvents()
 }

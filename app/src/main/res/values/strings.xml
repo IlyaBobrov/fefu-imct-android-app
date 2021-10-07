@@ -58,4 +58,35 @@
     <string name="profile_login_btn_login">Войти</string>
     <string name="profile_login_btn_registration">Регистрация</string>
 
+
+    <!--forms-->
+    <!-- Validate -->
+    <string name="validate_is_incorrect">Не корректное поле</string>
+    <string name="validate_is_required">Обязательно поле</string>
+
+    <!-- Fields -->
+    <string name="form_field">Поле</string>
+    <string name="form_fields_email">Почта</string>
+    <string name="form_fields_phone">Телефон</string>
+    <string name="form_fields_password">Пароль</string>
+
+    <!-- Error -->
+    <string name="form_error_emoji">Эмодзи не поддерживаются</string>
+
+    <!-- Onboarding 1 -->
+    <string name="onboarding_1_title">Мы обновились!</string>
+    <string name="onboarding_1_text">Удобное приложение — быстрый доступ к новостям и объявлениям</string>
+    <string name="onboarding_1_btn">Далее</string>
+
+    <!-- Onboarding 2 -->
+    <string name="onboarding_2_title">Местоположение</string>
+    <string name="onboarding_2_text">Разреши доступ с своему местоположению, чтобы мы смогли показать магазины поблизости, а также наличие товаров в ближайшем магазине</string>
+    <string name="onboarding_2_btn_permissions">Далее</string>
+    <string name="onboarding_2_btn_select">Выбрать город</string>
+
+    <!-- Sign In -->
+    <string name="sign_in_title">Вход</string>
+    <string name="profile_menu_list_logout">Выход</string>
+
+
 </resources>

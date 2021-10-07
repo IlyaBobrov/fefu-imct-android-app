@@ -23,6 +23,7 @@ import com.asprog.imct.modules.profile.navigation.graph.profileNavGraph
 import com.asprog.imct.modules.home.navigation.graph.homeNavGraph
 import com.asprog.imct.modules.home.navigation.nav.HomeNav
 import com.asprog.imct.modules.info.navigation.graph.infoNavGraph
+import com.asprog.imct.modules.other.navigation.graph.otherNavGraph
 import com.google.accompanist.insets.ProvideWindowInsets
 import com.google.accompanist.pager.ExperimentalPagerApi
 
@@ -66,6 +67,9 @@ fun NavGraph(navController: NavHostController) {
                         navActions = navActions,
                     )
                     infoNavGraph(
+                        navActions = navActions,
+                    )
+                    otherNavGraph(
                         navActions = navActions,
                     )
                     profileNavGraph(

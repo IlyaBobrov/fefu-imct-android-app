@@ -1,11 +1,13 @@
 package com.asprog.imct.modules._common.ui.viewmodels
 
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.asprog.imct.base.preferences.AppPreferences
 import com.asprog.imct.modules._common.service.DataServiceCommon
 import com.asprog.imct.modules.home.navigation.nav.HomeNav
+import com.asprog.imct.modules.other.data.resp.UserResp
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -29,6 +31,11 @@ class MainViewModel @Inject constructor(
 
     private val _isLogin: MutableStateFlow<Boolean> = MutableStateFlow(preferences.isLogin())
     val isLogin: StateFlow<Boolean> get() = _isLogin.asStateFlow()
+
+    private val _userResp = MutableStateFlow(preferences.getUser())
+    var userResp: StateFlow<UserResp>
+    get() = _userResp.asStateFlow()
+    set(value) {  _userResp.value = value.value}
 
     private val _showSnackBar: MutableStateFlow<Boolean> = MutableStateFlow(false)
     val showSnackBar: StateFlow<Boolean> get() = _showSnackBar.asStateFlow()
@@ -83,10 +90,13 @@ class MainViewModel @Inject constructor(
         preferences.isStartPage = false
     }
 
-    fun startUser(accessToken: String, refreshToken: String) {
+    fun startUser(accessToken: String, refreshToken: String = "1", user: UserResp) {
+        Log.d("TAG", "startUser: ")
         _isLogin.value = true
         // update credentials
         preferences.setTokens(accessToken, refreshToken)
+        preferences.setUser(user)
+        _userResp.value = user
     }
 
     fun logout() {
