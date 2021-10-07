@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.asprog.imct.R
 import com.asprog.imct.modules._common.service.ServerResult
+import com.asprog.imct.modules.info.data.mock.MockInfoResponse
 import com.asprog.imct.modules.info.data.state.ErrorMessage
 import com.asprog.imct.modules.info.data.state.InfoUiState
 import com.asprog.imct.modules.info.repository.InfoRepository
@@ -32,11 +33,12 @@ class InfoViewModel
     private fun initInfo() {
         _uiState.update { it.copy(loading = true) }
         viewModelScope.launch {
-            val resultConfig = repository.getInfo()
+            val result = MockInfoResponse
             _uiState.update {
-                when (resultConfig) {
+                it.copy(data = result, loading = false)
+                /*when (result) {
                     is ServerResult.Success -> {
-                        it.copy(data = resultConfig.data, loading = false)
+                        it.copy(data = result.data, loading = false)
                     }
                     is ServerResult.Error -> {
                         val errorMessages = it.errorMessages + ErrorMessage(
@@ -45,7 +47,7 @@ class InfoViewModel
                         )
                         it.copy(errorMessages = errorMessages, loading = false)
                     }
-                }
+                }*/
             }
         }
     }

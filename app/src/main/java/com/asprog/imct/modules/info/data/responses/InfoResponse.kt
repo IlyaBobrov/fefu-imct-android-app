@@ -4,32 +4,24 @@ import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
-@Parcelize
 data class InfoResponse(
-    @SerializedName("department")
     val department: DepartmentResponse? = null,
-    @SerializedName("teachers")
     val teachers: List<TeachersResponse>? = null,
-    @SerializedName("directions")
     val directions: List<DirectionsResponse>? = null
-) : Parcelable
-
-@Parcelize
+)
 data class DepartmentResponse(
-    @SerializedName("textInfo")
-    val textInfo: String? = null
-) : Parcelable
-
-@Parcelize
+    val textInfo: String
+)
 data class TeachersResponse(
-    @SerializedName("id")
-    val id: Int? = null,
-    @SerializedName("name")
     val name: String? = null,
-) : Parcelable
+    val imageUrl: String ? = null
+)
 
-@Parcelize
 data class DirectionsResponse(
-    @SerializedName("text")
-    val text: String? = null
-) : Parcelable
+    val title: String? = null,
+    val direction: List<DirectionSec>
+)
+data class DirectionSec(
+    val title:String,
+    val desc: String
+)
