@@ -5,6 +5,6 @@ import retrofit2.Response
 import retrofit2.http.GET
 
 interface ApiGet {
-    @GET("home")
+    @GET("news.get")
     suspend fun getHome(): Response<HomeResponse>
 }

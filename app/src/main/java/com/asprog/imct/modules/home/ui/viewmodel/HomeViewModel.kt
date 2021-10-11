@@ -1,5 +1,7 @@
 package com.asprog.imct.modules.home.ui.viewmodel
 
+import android.annotation.SuppressLint
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.asprog.imct.base.done
@@ -7,8 +9,6 @@ import com.asprog.imct.base.error
 import com.asprog.imct.base.errorUnknownHost
 import com.asprog.imct.base.success
 import com.asprog.imct.modules._common.data.mockData.HomeModelMock
-import com.asprog.imct.modules.home.data.models.HomeModel
-import com.asprog.imct.modules.home.data.models.HomeNewsModel
 import com.asprog.imct.modules.home.data.relations.HomeRelation
 import com.asprog.imct.modules.home.services.apiService.ApiServiceHome
 import com.asprog.imct.modules.home.services.data.DataServiceHome
@@ -38,7 +38,7 @@ class HomeViewModel
     val loading: StateFlow<Boolean> get() = _loading.asStateFlow()
 
     init {
-        if (false) {
+        if (!DebugLocalData) {
             updateHome()
         } else {
             if (System.currentTimeMillis() - data.preferences.lastUpdateHome >= ConstantsPaging.CACHE_TIMEOUT) {
@@ -47,7 +47,9 @@ class HomeViewModel
         }
     }
 
+    @SuppressLint("LogNotTimber")
     fun updateHome() {
+        Log.d("TAG", "updateHome: ")
         data.preferences.lastUpdateHome = System.currentTimeMillis()
         // start update
         _commonError.value = null
@@ -68,8 +70,10 @@ class HomeViewModel
                 _loading.value = false
                 _errorConnection.value = false
             } else {
+                Log.d("TAG", "updateHome: getHome")
                 apiService.getHome()
                     .success { response ->
+                        Log.e("TAG", "updateHome: success", )
                         // clear old data
                         data.clear()
                         // insert if not null
@@ -78,15 +82,18 @@ class HomeViewModel
                         }
                     }
                     .error {
+                        Log.e("TAG", "updateHome: error", )
                         Timber.e(it)
                         _commonError.value = it.message ?: "Error update feed"
                     }
                     .done {
+                        Log.e("TAG", "updateHome: done", )
                         delay(500) // disable loading after insert
                         _loading.value = false
                         _errorConnection.value = false
                     }
                     .errorUnknownHost {
+                        Log.e("TAG", "updateHome: errorUnknownHost", )
                         _errorConnection.value = true
                     }
             }

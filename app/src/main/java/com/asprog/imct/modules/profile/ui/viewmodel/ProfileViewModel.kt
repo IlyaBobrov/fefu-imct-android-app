@@ -9,7 +9,6 @@ import com.asprog.imct.base.success
 import com.asprog.imct.modules._common.data.UserModel
 import com.asprog.imct.modules.profile.services.apiService.ApiServiceProfile
 import com.asprog.imct.modules.profile.services.data.DataServiceProfile
-import com.asprog.imct.urils.DebugLocalData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
@@ -32,7 +31,7 @@ class ProfileViewModel @Inject constructor(
     fun userUpdate() {
         _loading.value = true
         viewModelScope.launch {
-            if (true/*DebugLocalData*/) {
+            if (true) {
 //                data.updateUser()
             } else {
                 apiService.getUser()

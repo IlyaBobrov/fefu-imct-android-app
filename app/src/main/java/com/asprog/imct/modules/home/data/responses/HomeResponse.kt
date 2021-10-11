@@ -4,6 +4,7 @@ import androidx.compose.runtime.Immutable
 
 @Immutable
 data class HomeResponse(
+    val status: String,
     val banners: List<BannerResponse>?,
     val ads: List<AdsResponse>?,
     val news: List<NewsResponse>?

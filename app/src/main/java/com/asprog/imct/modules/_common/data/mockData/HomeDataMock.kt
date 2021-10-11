@@ -103,6 +103,7 @@ object HomeDataMock {
     )
 
     val data = HomeResponse(
+        status = "success",
         banners = listBanners,
         ads = listAds,
         news = listNews
